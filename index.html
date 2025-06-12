@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge on Market - Інтерактивна Цифрова Реклама</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Full logo.png" alt="Bridge on Market" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">Про нас</a></li>
+                <li><a href="#services">Послуги</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Трансформуйте Ваш Бренд з інтерактивною рекламою в Торгових Центрах</h1>
+            <p>Досягайте вашої цільової аудиторії там, де вони роблять покупки, їдять і проводять свій час</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Про нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ми є компанія, яка допоже здобути Вам нову аудиторію завдяки нашим інтерактивним екранам.</p>
+                    <p>З багаторічним досвідом у сфері цифрової зовнішньої реклами, ми допомагаємо брендам з'єднуватися зі своєю аудиторією.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Наші Послуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Реклама в торгових центрах</h3>
+                    <p>Ми пропонуємо розміщення Вашої реклами на наших інтерактивних екранах в різних торгових центрах міста Львів</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Оренда інтерактивних екранів</h3>
+                    <p>Ми можемо розмістити наші інтерактивні екрани у ваших точках збуту чи презентаційних зонах та налаштувати їх під Ваші потреби</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-sign"></i>
+                    <h3>Продаж інтерактивних екранів</h3>
+                    <p>Ви можете придбати в нас інтерактивні екрани як внутрішнього, так і зовнішнього типу під Ваші потреби.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Допомога з рекламою</h3>
+                    <p>Якщо у Вас немає готового рекламного матеріалу, який відповідає нашим вимогам, не переживайте, наша команда дизайнерів з радістю адаптує наявний матеріал для інтерактивних екранів і після погодження з Вами ми готові стартувати.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Галерея</h2>
+            <div class="gallery-grid">
+                <img src="assets/foto1.jpeg" alt="Gallery Image 1">
+                <img src="assets/foto2.jpeg" alt="Gallery Image 2">
+                <img src="assets/foto3.jpeg" alt="Gallery Image 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Full logo.png" alt="Bridge on Market" class="logo-img">
+                </div>
+                <div class="footer-contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+38(096)-786-95-38</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>reklamniekrany@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bridge on Market. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals for Services -->
+    <div id="modal-1" class="service-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Реклама в торгових центрах</h3>
+            <form id="mall-ad-calc" class="calc-form" autocomplete="off" onsubmit="return false;">
+                <div class="calc-field">
+                    <label for="ad_duration">Тривалість (секунд):</label>
+                    <input type="number" id="ad_duration" min="1" value="10" required>
+                </div>
+                <div class="calc-field">
+                    <label for="showing_ammount_per_hour">Кількість показів на годину (мін. 12):</label>
+                    <input type="number" id="showing_ammount_per_hour" min="12" value="12" required>
+                </div>
+                <div class="calc-field">
+                    <label for="advertising_company_duration">Тривалість рекламної кампанії (днів, мін. 15):</label>
+                    <input type="number" id="advertising_company_duration" min="15" value="15" required>
+                </div>
+            </form>
+            <div class="calc-result">
+                <strong>Вартість:</strong> <span id="mall-ad-price">0.00</span> грн
+            </div>
+        </div>
+    </div>
+    <div id="modal-2" class="service-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 style="margin-bottom: 28px;">Вартість оренди інтерактивних екранів (за 1 місяць)</h3>
+            <div class="rent-gallery">
+                <div class="rent-item">
+                    <img src="assets/indoor-43.jpg" alt="Внутрішній 43 дюйми">
+                    <div class="rent-caption">
+                        Внутрішній 43 дюйми<br>
+                        <span class="rent-price">14 500 грн</span>
+                    </div>
+                </div>
+                <div class="rent-item">
+                    <img src="assets/indoor-50.jpg" alt="Внутрішній 55 дюймів">
+                    <div class="rent-caption">
+                        Внутрішній 50 дюймів<br>
+                        <span class="rent-price">18 500 грн</span>
+                    </div>
+                </div>
+                <div class="rent-item">
+                    <img src="assets/outdoor-55.jpg" alt="Внутрішній 55 дюймів">
+                    <div class="rent-caption">
+                        Зовнішній 55 дюймів<br>
+                        <span class="rent-price">22 000 грн</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-3" class="service-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 style="margin-bottom: 28px;">Вартість оренди інтерактивних екранів (за 1 місяць)</h3>
+            <div class="rent-gallery">
+                <div class="rent-item">
+                    <img src="assets/indoor-43.jpg" alt="Внутрішній 43 дюйми">
+                    <div class="rent-caption">
+                        Внутрішній 43 дюйми<br>
+                        <span class="rent-price">Вартість уточніть у менеджера за телефоном нижче</span>
+                    </div>
+                </div>
+                <div class="rent-item">
+                    <img src="assets/indoor-50.jpg" alt="Внутрішній 55 дюймів">
+                    <div class="rent-caption">
+                        Внутрішній 50 дюймів<br>
+                        <span class="rent-price">Вартість уточніть у менеджера за телефоном нижче</span>
+                    </div>
+                </div>
+                <div class="rent-item">
+                    <img src="assets/outdoor-55.jpg" alt="Зовнішній 55 дюймів">
+                    <div class="rent-caption">
+                        Зовнішній 55 дюймів<br>
+                        <span class="rent-price">189 000 грн</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-4" class="service-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Допомога з рекламою</h3>
+            <p>Тут буде детальна інформація про цю послугу.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
