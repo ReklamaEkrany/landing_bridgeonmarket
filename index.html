@@ -49,6 +49,52 @@
     <!-- The rest of the page (Deep Tech, TRL, Gallery, Advantages, Contacts) stays unchanged from your v4 build.
          Only the logo area and meta icons were adjusted to point at /assets/*. -->
 
+    <section id="what-is" class="mx-auto max-w-6xl px-4 pb-12 md:pb-16">
+      <div class="rounded-3xl border border-white/10 p-6 md:p-10 bg-white/5">
+        <h2 class="text-2xl md:text-3xl font-semibold">What is hydrogen water?</h2>
+
+    <!-- One-liner -->
+       <p class="mt-2 text-neutral-300 leading-relaxed">
+          Hydrogen water is regular drinking water enriched with dissolved molecular hydrogen (H₂) 
+         to help counter everyday oxidative stress and support feel-good hydration.
+       </p>
+
+    <!-- Short blurb -->
+        <p class="mt-2 text-neutral-300 leading-relaxed">
+        Hydrogen water is water infused with molecular hydrogen (H₂). Because H₂ is a tiny, neutral molecule,
+        it diffuses quickly and can act as a selective antioxidant, helping neutralize excess reactive oxygen species.
+        Produced correctly, it keeps an effective dissolved concentration for convenient daily use.
+        </p>
+
+    <!-- Benefits list -->
+        <h4 class="mt-6 text-base font-semibold text-white/90">Why people choose it</h4>
+        <ul class="mt-3 grid gap-3 md:grid-cols-2 text-neutral-300">
+          <li class="rounded-2xl bg-white/5 p-4">Help reduce everyday oxidative stress and inflammation load</li>
+          <li class="rounded-2xl bg-white/5 p-4">Support post-exercise recovery and lessen perceived fatigue</li>
+          <li class="rounded-2xl bg-white/5 p-4">Gentle on taste and digestion; easy to add to any routine</li>
+          <li class="rounded-2xl bg-white/5 p-4">Works alongside normal hydration—no change to minerals or pH</li>
+        </ul>
+
+    <!-- Disclaimer -->
+        <p class="mt-6 text-sm text-neutral-400">
+          Note: hydrogen water isn’t a medical treatment; individual results can vary.
+        </p>
+      </div>
+    </section>
+
+    <section id="deeptech" class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+      <div class="rounded-3xl border border-white/10 p-6 md:p-10 bg-white/5">
+        <h2 class="text-2xl md:text-3xl font-semibold">Deep‑Tech Core</h2>
+        <ul class="mt-4 space-y-3 text-neutral-300 leading-relaxed">
+          <li>• Low‑temperature <strong>PEM electrolyzer</strong> with a next‑gen membrane (in‑house design).</li>
+          <li>• Unique <strong>aluminium sealed chamber 13×6 cm</strong> with a built‑in display for live parameters.</li>
+          <li>• High‑efficiency <strong>ionization system</strong> with optimized current usage (24 V, 10 A stabilized).</li>
+          <li>• Integrated <strong>self‑diagnostics</strong> and ESP32 control with Bluetooth/Wi‑Fi.</li>
+          <li>• Achieves <strong>1.2–1.6 ppm H₂</strong> — a clinically meaningful antioxidant range.</li>
+        </ul>
+      </div>
+    </section>
+    
     <section id="deeptech" class="mx-auto max-w-6xl px-4 py-12 md:py-16">
       <div class="rounded-3xl border border-white/10 p-6 md:p-10 bg-white/5">
         <h2 class="text-2xl md:text-3xl font-semibold">Deep‑Tech Core</h2>
@@ -114,15 +160,17 @@
 
     <section id="gallery" class="mx-auto max-w-6xl px-4 pb-12 md:pb-16">
       <div class="rounded-3xl border border-white/10 p-6 md:p-10 bg-white/5">
-        <h2 class="text-2xl md:text-3xl font-semibold">Production Photos</h2>
-        <p class="mt-2 text-neutral-300">This gallery auto-loads images from the /assets folder if you name them factory-01..20.*</p>
-        <div id="gallery-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-        <template id="card-tpl">
-          <figure class="overflow-hidden rounded-2xl bg-black/20 border border-white/10">
-            <img loading="lazy" class="w-full h-56 object-cover" alt="factory photo" />
-            <figcaption class="px-3 py-2 text-sm text-neutral-300"></figcaption>
-          </figure>
-        </template>
+        <h2 class="text-2xl md:text-3xl font-semibold">Photos from manufacture</h2>
+
+      <div id="gallery-grid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+    <!-- UPDATED card template: no crop, keeps natural aspect ratio -->
+      <template id="card-tpl">
+        <figure class="rounded-2xl bg-black/20 border border-white/10 p-2">
+          <img loading="lazy" class="w-full h-auto object-contain" alt="factory photo" />
+          <figcaption class="px-2 py-2 text-sm text-neutral-300"></figcaption>
+        </figure>
+      </template>
       </div>
     </section>
 
@@ -140,28 +188,30 @@
     </footer>
 
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-      // Gallery loader: tries assets/factory-01..20 with common extensions
+      // loader як і був, без змін логіки підвантаження
       (function(){
         const grid = document.getElementById('gallery-grid');
         const tpl = document.getElementById('card-tpl');
         const exts = ['webp','jpg','jpeg','png'];
         const maxN = 20;
-        function addCard(src) {
-          const node = tpl.content.cloneNode(true);
-          node.querySelector('img').src = src;
-          node.querySelector('img').onerror = () => node.firstElementChild?.remove();
-          grid.appendChild(node);
+
+      function addCard(src) {
+        const node = tpl.content.cloneNode(true);
+        const img = node.querySelector('img');
+        img.src = src;
+        img.onerror = () => node.firstElementChild?.remove();
+        grid.appendChild(node);
+      }
+
+      for (let i=1;i<=maxN;i++) {
+        const num = String(i).padStart(2,'0');
+        for (const ext of exts) {
+          const src = `assets/factory-${num}.${ext}`;
+          const test = new Image();
+          test.onload = () => addCard(src);
+          test.src = src;
         }
-        for (let i=1;i<=maxN;i++) {
-          const num = String(i).padStart(2,'0');
-          for (const ext of exts) {
-            const src = `assets/factory-${num}.${ext}`;
-            const img = new Image();
-            img.onload = () => addCard(src);
-            img.src = src;
-          }
-        }
+      }
       })();
     </script>
   </body>
