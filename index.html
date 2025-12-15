@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Рекламне відео</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      overflow: hidden;
-      height: 100%;
-    }
-    video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Video</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #000; overflow: hidden;
+        }
+        #video-bg {
+            position: absolute; top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            object-fit: cover; /* Важливо для повного екрану */
+        }
+    </style>
 </head>
 <body>
-  <video id="adVideo" autoplay loop muted playsinline>
-    <source src="video.mp4" type="video/mp4">
-    Ваш браузер не підтримує відео.
-  </video>
+    <video id="video-bg" autoplay muted loop playsinline>
+        <source src="https://drive.google.com/uc?export=download&id=ВАШ_ID_ФАЙЛУ" type="video/mp4">
+    </video>
 </body>
 </html>
